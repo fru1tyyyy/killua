@@ -1,13 +1,5 @@
 import { Message } from "discord.js";
-import {
-  joinVoiceChannel,
-  createAudioPlayer,
-  createAudioResource,
-  AudioPlayerStatus,
-  getVoiceConnection,
-  VoiceConnection,
-  StreamType
-} from "@discordjs/voice";
+import { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus, getVoiceConnection, VoiceConnection, StreamType } from "@discordjs/voice";
 import play from "play-dl";
 import ytdl from "@distube/ytdl-core";
 import spotify from "spotify-url-info";
@@ -172,3 +164,4 @@ export const resume = {
     message.reply("▶️ Resumed.");
   }
 };
+
