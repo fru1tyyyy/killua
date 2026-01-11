@@ -1,13 +1,5 @@
 import { Message } from "discord.js";
-import {
-  joinVoiceChannel,
-  createAudioPlayer,
-  createAudioResource,
-  AudioPlayerStatus,
-  getVoiceConnection,
-  VoiceConnection,
-  StreamType
-} from "@discordjs/voice";
+import { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus, getVoiceConnection, VoiceConnection, StreamType } from "@discordjs/voice";
 import play from "play-dl";
 import ytdl from "@distube/ytdl-core";
 import spotify from "spotify-url-info";
@@ -98,7 +90,7 @@ export const playCommand = {
     console.log("QUEUE ADD:", title, url);
 
     queue.push({ title, url });
-    message.reply(`🎵 Added: **${title}**`);
+    message.reply(`Added: **${title}**`);
 
     if (!isPlaying) playNext(message, conn);
   }
@@ -107,7 +99,7 @@ export const playCommand = {
 async function playNext(message: Message, conn: VoiceConnection) {
   if (queue.length === 0) {
     isPlaying = false;
-    return message.reply("📭 Queue empty.");
+    return message.reply("Queue empty.");
   }
 
   const next = queue.shift()!;
@@ -151,9 +143,9 @@ export const stop = {
 export const skip = {
   name: "skip",
   execute(message: Message) {
-    if (!isPlaying) return message.reply("Nothing playing.");
+    if (!isPlaying) return message.reply("Queue is empty.");
     player.stop();
-    message.reply("Skipped.");
+    message.reply("Skipped to the next song.");
   }
 };
 
@@ -161,7 +153,7 @@ export const pause = {
   name: "pause",
   execute(message: Message) {
     player.pause();
-    message.reply("Paused.");
+    message.reply("Music paused.");
   }
 };
 
@@ -169,6 +161,6 @@ export const resume = {
   name: "resume",
   execute(message: Message) {
     player.unpause();
-    message.reply("Resumed.");
+    message.reply("Music resumed.");
   }
 };
