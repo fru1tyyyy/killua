@@ -1,10 +1,6 @@
 # Killua
 Discord Bot that can play music like an actual music bot and can also send memes
 
-## Features
-Meme Commands
-Music Commands
-
 ## Meme
 ![Bot Screenshot](./assets/meme.png)
 When you type $meme, Killua will send you a random meme
