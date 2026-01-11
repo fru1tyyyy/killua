@@ -1,5 +1,13 @@
 import { Message } from "discord.js";
-import { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus, getVoiceConnection, VoiceConnection, StreamType } from "@discordjs/voice";
+import {
+  joinVoiceChannel,
+  createAudioPlayer,
+  createAudioResource,
+  AudioPlayerStatus,
+  getVoiceConnection,
+  VoiceConnection,
+  StreamType
+} from "@discordjs/voice";
 import play from "play-dl";
 import ytdl from "@distube/ytdl-core";
 import spotify from "spotify-url-info";
@@ -27,7 +35,7 @@ export const join = {
       adapterCreator: message.guild!.voiceAdapterCreator
     });
 
-    message.reply("✅ Joined voice channel.");
+    message.reply("Joined voice channel.");
   }
 };
 
@@ -41,7 +49,7 @@ export const leave = {
     queue.length = 0;
     isPlaying = false;
 
-    message.reply("👋 Left the channel.");
+    message.reply("Left the channel.");
   }
 };
 
@@ -136,7 +144,7 @@ export const stop = {
     queue.length = 0;
     player.stop();
     isPlaying = false;
-    message.reply("⏹️ Stopped.");
+    message.reply("Stopped.");
   }
 };
 
@@ -145,7 +153,7 @@ export const skip = {
   execute(message: Message) {
     if (!isPlaying) return message.reply("Nothing playing.");
     player.stop();
-    message.reply("⏭️ Skipped.");
+    message.reply("Skipped.");
   }
 };
 
@@ -153,7 +161,7 @@ export const pause = {
   name: "pause",
   execute(message: Message) {
     player.pause();
-    message.reply("⏸️ Paused.");
+    message.reply("Paused.");
   }
 };
 
@@ -161,7 +169,6 @@ export const resume = {
   name: "resume",
   execute(message: Message) {
     player.unpause();
-    message.reply("▶️ Resumed.");
+    message.reply("Resumed.");
   }
 };
-
